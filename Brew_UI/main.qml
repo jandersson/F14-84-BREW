@@ -42,39 +42,39 @@ ApplicationWindow {
         }
 
         Text {
-            id: text5
+            id: txtBoil
             text: qsTr("Boil")
             z: 2
             font.pixelSize: 12
         }
 
-Text {
-    id: text4
-    text: qsTr("Sparge")
-    z: 2
-    font.pixelSize: 12
-}
+        Text {
+            id: txtSparge
+            text: qsTr("Sparge")
+            z: 2
+            font.pixelSize: 12
+        }
 
-Text {
-    id: text3
-        text: qsTr("Mash")
-        z: 2
-        font.pixelSize: 12
-}
+        Text {
+            id: txtMash
+            text: qsTr("Mash")
+            z: 2
+            font.pixelSize: 12
+        }
 
-Text {
-    id: text2
-    text: qsTr("Prep")
-    z: 2
-    font.pixelSize: 12
-}
+        Text {
+            id: txtPrep
+            text: qsTr("Prep")
+            z: 2
+            font.pixelSize: 12
+        }
 
-Text {
-    id: text1
-    text: qsTr("Recipe")
-    z: 2
-    font.pixelSize: 12
-    }
+        Text {
+            id: txtRecipe
+            text: qsTr("Recipe")
+            z: 2
+            font.pixelSize: 12
+        }
 
 
 
@@ -84,9 +84,19 @@ Text {
 
     Grid {
         id: gridRecipe
-        x: 0
+        x: 25
         y: 72
-        width: 800
+        width: 740
         height: 408
+        spacing: 15
+
+        Button {
+            id: button1
+            x: 83
+            y: 69
+            height: 80
+            text: qsTr("Button")
+            checked: false
+        }
     }
 }
