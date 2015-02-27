@@ -7,7 +7,7 @@ ApplicationWindow {
     visible: true
     width: 800
     height: 480
-    title: qsTr("F14-84-BREW Automated Brewery")
+    title: qsTr("Abbey Ridge Automated Brewery")
     initialPage: myPage
     theme {
         primaryColor: "#993333"
@@ -17,8 +17,7 @@ ApplicationWindow {
         id: myPage
         anchors.fill: parent
         tabs: [
-            {text: "Recipe",
-             width: 500},
+            {text: "Recipe"},
             {text: "Prep"},
             {text: "Mash"},
             {text: "Sparge"},
@@ -35,29 +34,54 @@ ApplicationWindow {
         VisualItemModel{
             id: tabs
             Rectangle{
+                id: recipePage
                 width: tabView.width
                 height: tabView.height
                 color: "#999"
             }
             Rectangle{
-                width: tabView.width
-                height: tabView.height
-                color: "#EEE"
-            }
-            Rectangle{
+                id: prepPage
                 width: tabView.width
                 height: tabView.height
                 color: "#999"
+                TemperatureCard{}
             }
             Rectangle{
+                id: mashPage
                 width: tabView.width
                 height: tabView.height
+                color: "#999"
+                TemperatureCard{
+
+                }
+                Button{
+                    id: btn_startSparge
+                    anchors.centerIn: parent
+                    text: "Begin Sparge"
+                    elevation: 1
+                    onClicked: myPage.selectedTab = 3
+                }
+
             }
             Rectangle{
+                id: spargePage
                 width: tabView.width
                 height: tabView.height
+                color: "#999"
+                TemperatureCard{id: spargeTempCard}
+                PumpControls{}
+            }
+            Rectangle{
+                id: chillPage
+                width: tabView.width
+                height: tabView.height
+                color: "#999"
+                TemperatureCard{}
+                PumpControls{}
             }
         }
     }
-
+    Snackbar{
+        id: snackbar
+    }
 }
