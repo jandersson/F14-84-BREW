@@ -9,7 +9,7 @@ ApplicationWindow {
     height: 480
     title: qsTr("F14-84-BREW Automated Brewery")
     initialPage: myPage
-    theme{
+    theme {
         primaryColor: "#993333"
         accentColor: "#993333"
     }
@@ -37,17 +37,17 @@ ApplicationWindow {
             Rectangle{
                 width: tabView.width
                 height: tabView.height
-                color: "green"
+                color: "#999"
             }
             Rectangle{
                 width: tabView.width
                 height: tabView.height
-                color: "black"
+                color: "#EEE"
             }
             Rectangle{
                 width: tabView.width
                 height: tabView.height
-                color: "orange"
+                color: "#999"
             }
             Rectangle{
                 width: tabView.width
