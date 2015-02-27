@@ -15,6 +15,7 @@ ApplicationWindow {
     }
     Page{
         id: myPage
+        title: "Abbey Ridge Automated Brewery"
         anchors.fill: parent
         tabs: [
             {text: "Recipe"},
