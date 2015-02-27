@@ -1,58 +1,62 @@
-import QtQuick 2.3
+import QtQuick 2.0
+import Material 0.1
+import Material.ListItems 0.1 as ListItem
+import Material.Extras 0.1
 
-Row {
-    id: rowStages
-    x: 0
-    y: 0
-    width: 800
-    height: 71
-    transformOrigin: Item.Center
-    layoutDirection: Qt.RightToLeft
-    spacing: 121
-    z: 0
+Item {
+    View {
+        anchors {
+            fill: parent
+            margins: units.dp(32)
+        }
 
-    Text {
-        id: text6
-        text: qsTr("Chill")
-        verticalAlignment: Text.AlignTop
-        horizontalAlignment: Text.AlignLeft
-        z: 2
-        font.pixelSize: 12
+        elevation: 1
+
+        Column {
+            anchors.fill: parent
+
+            ListItem.Header {
+                text: "Section header"
+            }
+
+            ListItem.Standard {
+                text: "Standard list item"
+            }
+
+            ListItem.Subtitled {
+                text: "Subtitled list item"
+                subText: "With some subtext!"
+            }
+
+            ListItem.Subtitled {
+                text: "Subtitled list item"
+                subText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec eleifend arcu, eu convallis nisi."
+                valueText: "2h ago"
+
+                maximumLineCount: 3
+            }
+
+            ListItem.Subtitled {
+                text: "Subtitled list item"
+                subText: "With some subtext, icon, and secondary item!"
+                secondaryItem: Switch {
+                    id: enablingSwitch
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+
+                onClicked: enablingSwitch.checked = !enablingSwitch.checked
+
+                action: Icon {
+                    anchors.centerIn: parent
+                    name: "device/access_alarm"
+                    size: units.dp(32)
+                }
+            }
+
+            ListItem.SimpleMenu {
+                text: "Subtitled list item"
+                model: ["A", "B", "C"]
+            }
+        }
     }
-
-    Text {
-        id: txtBoil
-        text: qsTr("Boil")
-        z: 2
-        font.pixelSize: 12
-    }
-
-    Text {
-        id: txtSparge
-        text: qsTr("Sparge")
-        z: 2
-        font.pixelSize: 12
-    }
-
-    Text {
-        id: txtMash
-        text: qsTr("Mash")
-        z: 2
-        font.pixelSize: 12
-    }
-
-    Text {
-        id: txtPrep
-        text: qsTr("Prep")
-        z: 2
-        font.pixelSize: 12
-    }
-
-    Text {
-        id: txtRecipe
-        text: qsTr("Recipe")
-        z: 2
-        font.pixelSize: 12
-    }
-
 }
