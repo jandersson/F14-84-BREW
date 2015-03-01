@@ -5,10 +5,9 @@ import Material.Extras 0.1
 
 Item{
     anchors.fill: parent
-    anchors.leftMargin: 400
-    anchors.topMargin:  20
+    anchors.margins: 20
     View {
-        width: units.dp(350)
+        width: parent.width
         height: col_timers.implicitHeight
         elevation: 1
         Column{
@@ -18,7 +17,8 @@ Item{
                 text: "Timers"
             }
             ListItem.Standard{
-                text: "Timer 1  00:00:00"
+                id: timer_session
+                text: "Session Timer  00:00:00"
                 secondaryItem: Row{
 
                     Button{
@@ -29,6 +29,13 @@ Item{
                     text: "Destroy"
                     anchors.verticalCenter: parent.verticalCenter
                     }
+
+                }
+            }
+            ListItem.Standard{
+                id: timer_create
+                secondaryItem: Button{
+                    text: "New Timer"
                 }
             }
         }
