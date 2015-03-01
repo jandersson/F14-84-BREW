@@ -41,23 +41,63 @@ ApplicationWindow {
                 color: "#999"
             }
             Rectangle{
-                id: prepPage
+                id: prepPage                
                 width: tabView.width
                 height: tabView.height
                 color: "#999"
-                TemperatureCard{}
+                Item{
+                    id: prep_temperature
+                    width: parent.width/2
+                    height: parent.height
+
+                    Rectangle{
+                        id: debug_rect
+                        visible: false
+                        anchors.fill: parent
+                        color: "blue"
+                    }
+
+                    TemperatureCard{}
+                }
+                Item{
+                    id: section_timers
+                    width: parent.width/2
+                    height: parent.height
+                    anchors.right: parent.right
+                    TimerCard{
+                        id: timerCard_prep
+                    }
+                }
+
+                ActionButton{
+                    anchors {
+                        margins: units.dp(32)
+                    }
+                    iconName: "content/add"
+                }
             }
             Rectangle{
                 id: mashPage
                 width: tabView.width
                 height: tabView.height
                 color: "#999"
-                TemperatureCard{
+                Item{
+                    id: mash_temperature
+                    width: parent.width/2
+                    height: parent.height
 
+                    Rectangle{
+                        id: debug2_rect
+                        visible: false
+                        anchors.fill: parent
+                        color: "blue"
+                    }
+
+                    TemperatureCard{}
                 }
                 Button{
                     id: btn_startSparge
-                    anchors.right parent
+                    
                     text: "Begin Sparge"
                     elevation: 1
                     onClicked: myPage.selectedTab = 3
