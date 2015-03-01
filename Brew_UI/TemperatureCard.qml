@@ -6,8 +6,9 @@ Item{
     anchors.fill: parent
     anchors.leftMargin: 20
     anchors.topMargin: 20
+    anchors.rightMargin: 20
     View {
-        width: units.dp(350)
+        width: parent.width
         height: col_temperature.implicitHeight
         elevation: 1
             Column{
