@@ -1,21 +1,31 @@
 import QtQuick 2.0
 import Material 0.1
-    Column{
-        anchors.centerIn: parent
-        spacing: 40
-        Button{
-            id: id_openCloseValve
-            text: "Open/Close Valve"
-            elevation: 1 //Makes a raised button
-            onClicked: snackbar.open("Valve Opened")
+Item{
+    anchors.fill: parent
+    anchors.topMargin: 50
+    anchors.leftMargin: 500
+    View{
+        width: units.dp(350)
+        height: col_valveControls.implicitHeight
+        Column{
+            id: col_valveControls
+            anchors.centerIn: parent
+            spacing: 40
+            Button{
+                id: id_openCloseValve
+                text: "Open/Close Valve"
+                elevation: 1 //Makes a raised button
+                onClicked: snackbar.open("Valve Opened")
 
-        }
-        Button{
-            id: btn_startStopPump
-            text: "Start/Stop Pump"
-            elevation: 1 //Makes a raised button
-            onClicked: snackbar.open("Pump Started")
+            }
+            Button{
+                id: btn_startStopPump
+                text: "Start/Stop Pump"
+                elevation: 1 //Makes a raised button
+                onClicked: snackbar.open("Pump Started")
+            }
         }
     }
+}
 
 

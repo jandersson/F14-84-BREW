@@ -57,7 +57,7 @@ ApplicationWindow {
                 }
                 Button{
                     id: btn_startSparge
-                    anchors.centerIn: parent
+                    anchors.right parent
                     text: "Begin Sparge"
                     elevation: 1
                     onClicked: myPage.selectedTab = 3
