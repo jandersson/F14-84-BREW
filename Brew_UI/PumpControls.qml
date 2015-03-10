@@ -2,8 +2,7 @@ import QtQuick 2.0
 import Material 0.1
 Item{
     anchors.fill: parent
-    anchors.topMargin: 50
-    anchors.leftMargin: 500
+    anchors.margins: 20
     View{
         width: units.dp(350)
         height: col_valveControls.implicitHeight
