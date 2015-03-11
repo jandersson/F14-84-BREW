@@ -52,95 +52,64 @@ ApplicationWindow {
                 title: "Create new recipe"
                 width: units.dp(500)
                 height: units.dp(500)
-                Item{
-
-                    id: newRecipeForm
-                    anchors.fill: parent
-                        View{
-                            id: formView
-                            anchors.fill: parent
-                            anchors.centerIn: parent
-                            elevation: 1
-                                Column{
-                                    anchors.fill: parent
-                                    anchors.topMargin: units.dp(16)
-                                    anchors.bottomMargin: units.dp(16)
-                                    width: parent.width
-                                    height: parent.height
-                                    id: column
-                                    ListItem.Standard{
-                                        action: Icon {
-                                            anchors.centerIn: parent
-                                            name: "awesome/beer"
-                                        }
-                                        content: TextField {
-                                            anchors.centerIn: parent
-                                            width: parent.width
-                                            placeholderText: "Recipe name"
-                                        }
-                                    }
-                                    Label {
-                                        text: "Mash In"
-                                    }
-                                    ListItem.Standard{
-                                        action: Item{}
-                                        content: Row{
-                                            anchors.centerIn: parent
-                                            TextField {
-                                                Layout.alignment: Qt.AlignVCenter
-                                                Layout.preferredWidth: 0.4 * parent.width
-                                                placeholderText: "Temperature"
-                                            }
-                                            TextField {
-                                                Layout.alignment: Qt.AlignVCenter
-                                                Layout.preferredWidth: 0.4 * parent.width
-                                                placeholderText: "Time"
-                                            }
-                                        }
-                                    }
-                                    Label{
-                                        text: "Mash Out"
-                                    }
-                                    ListItem.Standard{
-                                        action: Item{}
-                                        content: Row{
-                                            anchors.centerIn: parent
-                                            TextField {
-                                                Layout.alignment: Qt.AlignVCenter
-                                                Layout.preferredWidth: 0.4 * parent.width
-                                                placeholderText: "Temperature"
-                                            }
-                                            TextField {
-                                                Layout.alignment: Qt.AlignVCenter
-                                                Layout.preferredWidth: 0.4 * parent.width
-                                                placeholderText: "Time"
-                                            }
-                                        }
-                                    }
-                                    Label{
-                                        text: "Boil"
-                                    }
-                                    ListItem.Standard{
-                                        action: {}
-                                        content: Row{
-                                            anchors.centerIn: parent
-                                            TextField {
-                                                Layout.alignment: Qt.AlignVCenter
-                                                Layout.preferredWidth: 0.4 * parent.width
-                                                placeholderText: "Ingredient"
-                                            }
-                                            TextField {
-                                                Layout.alignment: Qt.AlignVCenter
-                                                Layout.preferredWidth: 0.4 * parent.width
-                                                placeholderText: "Time"
-                                            }
-                                        }
-                                    }
-                                    ListItem.Standard{
-
-                                    }
-                                }
+                ListItem.Standard{
+                    action: Icon {
+                        anchors.centerIn: parent
+                        name: "awesome/beer"
+                    }
+                    content: TextField {
+                        anchors.centerIn: parent
+                        width: parent.width
+                        placeholderText: "Recipe name"
+                    }
+                }
+                ListItem.Standard{
+                    action: Item{}
+                    content: Row{
+                        anchors.centerIn: parent
+                        TextField {
+                            Layout.alignment: Qt.AlignVCenter
+                            Layout.preferredWidth: parent.width/2
+                            placeholderText: "Temperature"
                         }
+                        TextField {
+                            Layout.alignment: Qt.AlignVCenter
+                            Layout.preferredWidth: parent.width/2
+                            placeholderText: "Time"
+                        }
+                    }
+                }
+                ListItem.Standard{
+                    action: Item{}
+                    content: Row{
+                        anchors.centerIn: parent
+                        TextField {
+                            Layout.alignment: Qt.AlignVCenter
+                            placeholderText: "Temperature"
+                        }
+                        TextField {
+                            Layout.alignment: Qt.AlignVCenter
+                            placeholderText: "Time"
+                        }
+                    }
+                }
+                ListItem.Standard{
+                    action: {}
+                    content: Row{
+                        anchors.centerIn: parent
+                        Label {
+                            text: "Boil Ingredient"
+                            Layout.alignment: Qt.AlignVCenter
+                        }
+                        TextField {
+                            Layout.alignment: Qt.AlignVCenter
+                            placeholderText: "Ingredient"
+                        }
+                        TextField {
+                            Layout.alignment: Qt.AlignVCenter
+                            placeholderText: "Time"
+                        }
+                    }
                 }
             }
         }
