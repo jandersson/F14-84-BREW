@@ -42,76 +42,89 @@ ApplicationWindow {
                 width: tabView.width
                 height: tabView.height
                 color: "#999"
-                Button {
-                    text: "Create Recipe"
+                ImportRecipeDialog{
+                    id: dialog_importRecipe
+                }
+                Row{
                     anchors.centerIn: parent
-                    onClicked: recipeDialog.show()
-                }
-            Dialog{
-                id: recipeDialog
-                title: "Create new recipe"
-                width: units.dp(500)
-                height: units.dp(500)
-                ListItem.Standard{
-                    action: Icon {
-                        anchors.centerIn: parent
-                        name: "awesome/beer"
+                    spacing: units.dp(4)
+                    Button {
+                        id: btn_createRecipe
+                        text: "Create Recipe"
+                        onClicked: recipeDialog.show()
                     }
-                    content: TextField {
-                        anchors.centerIn: parent
+                    Button {
+                        id: btn_importRecipe
+                        text: "Import from BeerSmith"
+                        onClicked: dialog_importRecipe.open()
+                    }
+                }
+                Dialog{
+                    id: recipeDialog
+                    title: "Create new recipe"
+                    width: units.dp(500)
+                    height: units.dp(500)
+                    Column{
+                        id: recipeColumn
                         width: parent.width
-                        placeholderText: "Recipe name"
+                        height: parent.height
+                        ListItem.Standard{
+                            action: Icon {
+                                anchors.centerIn: parent
+                                name: "awesome/beer"
+                            }
+                            content: TextField {
+                                anchors.centerIn: parent
+                                width: parent.width
+                                placeholderText: "Recipe name"
+                            }
+                        }
+                        ListItem.Standard{
+                            action: Item{}
+                            content: Row{
+                                anchors.centerIn: parent
+                                TextField {
+                                    Layout.alignment: Qt.AlignVCenter
+                                    Layout.preferredWidth: parent.width/2
+                                    placeholderText: "Temperature"
+                                }
+                                TextField {
+                                    Layout.alignment: Qt.AlignVCenter
+                                    Layout.preferredWidth: parent.width/2
+                                    placeholderText: "Time"
+                                }
+                            }
+                        }
+                        ListItem.Standard{
+                            action: Item{}
+                            content: Row{
+                                anchors.centerIn: parent
+                                TextField {
+                                    Layout.alignment: Qt.AlignVCenter
+                                    placeholderText: "Temperature"
+                                }
+                                TextField {
+                                    Layout.alignment: Qt.AlignVCenter
+                                    placeholderText: "Time"
+                                }
+                            }
+                        }
+                        ListItem.Standard{
+                            action: {}
+                            content: Row{
+                                anchors.centerIn: parent
+                                TextField {
+                                    Layout.alignment: Qt.AlignVCenter
+                                    placeholderText: "Ingredient"
+                                }
+                                TextField {
+                                    Layout.alignment: Qt.AlignVCenter
+                                    placeholderText: "Time"
+                                }
+                            }
+                        }
                     }
                 }
-                ListItem.Standard{
-                    action: Item{}
-                    content: Row{
-                        anchors.centerIn: parent
-                        TextField {
-                            Layout.alignment: Qt.AlignVCenter
-                            Layout.preferredWidth: parent.width/2
-                            placeholderText: "Temperature"
-                        }
-                        TextField {
-                            Layout.alignment: Qt.AlignVCenter
-                            Layout.preferredWidth: parent.width/2
-                            placeholderText: "Time"
-                        }
-                    }
-                }
-                ListItem.Standard{
-                    action: Item{}
-                    content: Row{
-                        anchors.centerIn: parent
-                        TextField {
-                            Layout.alignment: Qt.AlignVCenter
-                            placeholderText: "Temperature"
-                        }
-                        TextField {
-                            Layout.alignment: Qt.AlignVCenter
-                            placeholderText: "Time"
-                        }
-                    }
-                }
-                ListItem.Standard{
-                    action: {}
-                    content: Row{
-                        anchors.centerIn: parent
-                        Label {
-                            text: "Boil Ingredient"
-                            Layout.alignment: Qt.AlignVCenter
-                        }
-                        TextField {
-                            Layout.alignment: Qt.AlignVCenter
-                            placeholderText: "Ingredient"
-                        }
-                        TextField {
-                            Layout.alignment: Qt.AlignVCenter
-                            placeholderText: "Time"
-                        }
-                    }
-                }
-            }
         }
             Rectangle{
                 id: prepPage                
