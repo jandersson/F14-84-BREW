@@ -8,8 +8,8 @@ import Material.Extras 0.1
 ApplicationWindow {
     id: appWindow
     visible: true
-    width: 800
-    height: 480
+    width: 1024
+    height: 600
     title: qsTr("Abbey Ridge Automated Brewery")
     initialPage: myPage
     theme {
