@@ -64,6 +64,7 @@ ApplicationWindow {
                     title: "Create new recipe"
                     width: units.dp(500)
                     height: units.dp(500)
+                    onAccepted: recipe.setName("MBN")
                     Column{
                         id: recipeColumn
                         width: parent.width
@@ -257,9 +258,3 @@ ApplicationWindow {
         id: snackbar
     }
 }
-//                    Rectangle{
-//                        id: debug_rect
-//                        visible: false
-//                        anchors.fill: parent
-//                        color: "blue"
-//                    }
