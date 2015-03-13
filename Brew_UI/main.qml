@@ -45,8 +45,23 @@ ApplicationWindow {
                 ImportRecipeDialog{
                     id: dialog_importRecipe
                 }
+                GridView{
+                    width: 300; height: 200
+                    anchors{
+                        margins: units.dp(8)
+                        verticalCenter: parent.verticalCenter
+                        horizontalCenter: parent.horizontalCenter
+                    }
+                    model: recipe
+                    delegate: Text{ text: recipe.getRecipeName()}
+                }
+
                 Row{
-                    anchors.centerIn: parent
+                    anchors{
+                        bottom: parent.bottom
+                        horizontalCenter: parent.horizontalCenter
+                    }
+
                     spacing: units.dp(4)
                     Button {
                         id: btn_createRecipe

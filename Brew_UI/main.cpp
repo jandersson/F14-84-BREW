@@ -12,13 +12,10 @@ int main(int argc, char *argv[])
     //Exposes some application functionality which a C++/QML hybrid application uses to control the application from C++
     QQmlApplicationEngine engine;
 
-    QStringList dataList;
-    dataList.append("Recipe 1");
+    //Instantiate a single instance of the recipe class for testing purposes
     Recipe recipe;
     QQmlContext* ctx = engine.rootContext();
     ctx->setContextProperty("recipe", &recipe);
-
-
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 

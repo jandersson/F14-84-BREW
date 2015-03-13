@@ -1,6 +1,5 @@
 #ifndef RECIPE_H
 #define RECIPE_H
-using namespace std;
 #include <QObject>
 #include <QString>
 class Recipe : public QObject
@@ -10,11 +9,15 @@ public:
     explicit Recipe(QObject *parent = 0);
 
 signals:
-    void getName();
+
 public slots:
+    QString getRecipeName();
     void setName(QString recipeName);
+    void setImportPath(QString path);
+    QString getImportPath();
 private:
     QString recipeName;
+    QString importPath;
 };
 
 #endif // RECIPE_H
