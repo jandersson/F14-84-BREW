@@ -1,0 +1,4 @@
+#ifndef RECIPEREADER_H
+#define RECIPEREADER_H
+
+#endif // RECIPEREADER_H
