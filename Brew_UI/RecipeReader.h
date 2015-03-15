@@ -8,6 +8,7 @@ public:
     void read(QIODevice * device);
 private:
     QXmlStreamReader xml;
+    void readRecipe();
 };
 
 #endif // RECIPEREADER_H
