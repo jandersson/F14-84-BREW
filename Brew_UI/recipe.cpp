@@ -12,6 +12,13 @@ Recipe::Recipe(QObject *parent) :
     importPath = "";
 }
 
+Recipe::mashStep::mashStep(QString _name, QString _type, double _temperature, double _time){
+    name = _name;
+    type = _type;
+    temperature = _temperature;
+    time = _time;
+}
+
 void Recipe::setRecipeName(QString recipeName){
     this->recipeName = recipeName;
     recipeNameChanged();
