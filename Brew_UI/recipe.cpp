@@ -14,6 +14,7 @@ Recipe::Recipe(QObject *parent) :
 
 void Recipe::setRecipeName(QString recipeName){
     this->recipeName = recipeName;
+    recipeNameChanged();
 }
 
 QString Recipe::getRecipeName(){

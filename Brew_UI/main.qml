@@ -53,7 +53,15 @@ ApplicationWindow {
                         horizontalCenter: parent.horizontalCenter
                     }
                     model: recipe
-                    delegate: Text{ text: recipe.getRecipeName()}
+                    delegate: Text{
+                        id: txt_recipeName
+                        text: recipe.getRecipeName()
+                        Connections {
+                            target: recipe
+                            onRecipeNameChanged: txt_recipeName.text = recipe.getRecipeName()
+                        }
+                    }
+
                 }
 
                 Row{

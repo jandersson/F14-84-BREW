@@ -9,7 +9,7 @@ public:
     explicit Recipe(QObject *parent = 0);
 
 signals:
-
+    void recipeNameChanged();
 public slots:
     QString getRecipeName();
     void setRecipeName(QString recipeName);
