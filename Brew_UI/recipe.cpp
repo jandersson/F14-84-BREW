@@ -1,5 +1,9 @@
 #include "recipe.h"
+#include "RecipeReader.h"
 #include <QString>
+#include <QFile>
+#include <QDebug>
+#include <QUrl>
 using namespace std;
 Recipe::Recipe(QObject *parent) :
     QObject(parent)
@@ -20,9 +24,20 @@ QString Recipe::getRecipeName(){
 }
 
 void Recipe::setImportPath(QString path){
-    this->importPath = path;
+    QUrl fileUrl(path);
+    importPath = fileUrl.toLocalFile();
+    this->importRecipe();
 }
 
 QString Recipe::getImportPath(){
     return this->importPath;
+}
+
+void Recipe::importRecipe(){
+    QFile file(importPath);
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
+    //Instantiate the recipe XML parser
+    RecipeReader recipeReader;
+    recipeReader.read(&file);
+    file.close();
 }

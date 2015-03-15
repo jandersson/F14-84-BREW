@@ -18,6 +18,7 @@ public slots:
 private:
     QString recipeName;
     QString importPath;
+    void importRecipe();
 };
 
 #endif // RECIPE_H
