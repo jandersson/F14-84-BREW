@@ -20,15 +20,40 @@ void RecipeReader::read(QIODevice * device){
 
 }
 
+enum string_code{
+    //Borrowed from stack overflow user D. Shawley
+    //http://stackoverflow.com/questions/650162/why-switch-statement-cannot-be-applied-on-strings
+    NAME,
+    MASHSTEP,
+    SKIP
+};
+
+string_code hashit (QStringRef inString){
+    if (inString == "NAME") return NAME;
+    if (inString == "MASH STEP") return MASHSTEP;
+    else return SKIP;
+}
+
 void RecipeReader::readRecipe(){
     while (xml.readNextStartElement()){
         if (xml.name() == "RECIPE"){
             while (xml.readNextStartElement()){
-                if (xml.name() == "NAME"){
+                switch (hashit(xml.name())){
+                case NAME:
                     recipe->setRecipeName(xml.readElementText());
-                }
-                else
+                    break;
+                case MASHSTEP:
+                    qDebug() << "Found a mash step";
+                    break;
+                default:
                     xml.skipCurrentElement();
+                    break;
+                }
+//                if (xml.name() == "NAME"){
+//                    recipe->setRecipeName(xml.readElementText());
+//                }
+//                else
+//                    xml.skipCurrentElement();
             }
         }
     }
