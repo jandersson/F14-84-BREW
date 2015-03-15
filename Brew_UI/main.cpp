@@ -3,6 +3,7 @@
 #include <QXmlStreamReader>
 #include <QQmlContext>
 #include "recipe.h"
+#include "RecipeReader.h"
 int main(int argc, char *argv[])
 {
     // Create Qt application window
@@ -14,11 +15,9 @@ int main(int argc, char *argv[])
 
     //Instantiate a single instance of the recipe class for testing purposes
     Recipe recipe;
+
     QQmlContext* ctx = engine.rootContext();
     ctx->setContextProperty("recipe", &recipe);
-
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
-
-
     return app.exec();
 }
