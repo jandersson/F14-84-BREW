@@ -2,6 +2,9 @@
 #include <QIODevice>
 #include <QDebug>
 
+RecipeReader::RecipeReader(Recipe * recipe){
+    this->recipe = recipe;
+}
 
 void RecipeReader::read(QIODevice * device){
     //read accepts a QIODevice and sets it using setDevice()
@@ -22,8 +25,7 @@ void RecipeReader::readRecipe(){
         if (xml.name() == "RECIPE"){
             while (xml.readNextStartElement()){
                 if (xml.name() == "NAME"){
-                    qDebug() << "Found the recipe name: " << xml.readElementText();
-
+                    recipe->setRecipeName(xml.readElementText());
                 }
                 else
                     xml.skipCurrentElement();

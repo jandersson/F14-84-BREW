@@ -12,7 +12,7 @@ Recipe::Recipe(QObject *parent) :
     importPath = "";
 }
 
-void Recipe::setName(QString recipeName){
+void Recipe::setRecipeName(QString recipeName){
     this->recipeName = recipeName;
 }
 
@@ -37,7 +37,8 @@ void Recipe::importRecipe(){
     QFile file(importPath);
     file.open(QIODevice::ReadOnly | QIODevice::Text);
     //Instantiate the recipe XML parser
-    RecipeReader recipeReader;
+    RecipeReader recipeReader(this);
     recipeReader.read(&file);
     file.close();
+    qDebug() << recipeName;
 }

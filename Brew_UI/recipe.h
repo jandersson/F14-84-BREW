@@ -12,7 +12,7 @@ signals:
 
 public slots:
     QString getRecipeName();
-    void setName(QString recipeName);
+    void setRecipeName(QString recipeName);
     void setImportPath(QString path);
     QString getImportPath();
 private:
