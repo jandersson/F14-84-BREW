@@ -6,6 +6,8 @@ FileDialog{
     title: "Choose a recipe XML file"
     onAccepted: {
         console.log("File selected: " + filedialog.fileUrl)
+        recipe.setImportPath(filedialog.fileUrl)
+        console.log("Importing file: " + recipe.getImportPath())
         filedialog.close()
     }
     onRejected: {
