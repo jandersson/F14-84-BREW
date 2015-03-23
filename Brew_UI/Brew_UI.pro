@@ -2,10 +2,7 @@ TEMPLATE = app
 
 QT += qml quick widgets
 
-SOURCES += main.cpp \
-    recipe.cpp \
-    RecipeReader.cpp \
-    mashstep.cpp
+SOURCES += main.cpp
 
 RESOURCES += qml.qrc
 
@@ -14,8 +11,3 @@ QML_IMPORT_PATH =
 
 # Default rules for deployment.
 include(deployment.pri)
-
-HEADERS += \
-    RecipeReader.h \
-    recipe.h \
-    mashstep.h

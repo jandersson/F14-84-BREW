@@ -2,10 +2,8 @@
 #include <QQmlApplicationEngine>
 #include <QXmlStreamReader>
 #include <QQmlContext>
-#include <QtQml>
 #include "recipe.h"
 #include "RecipeReader.h"
-
 int main(int argc, char *argv[])
 {
     // Create Qt application window
@@ -17,12 +15,9 @@ int main(int argc, char *argv[])
 
     //Instantiate a single instance of the recipe class for testing purposes
     Recipe recipe;
-    //Timer timer;
 
     QQmlContext* ctx = engine.rootContext();
     ctx->setContextProperty("recipe", &recipe);
-    qmlRegisterType<MashStep>("MashStep", 1, 0, "MashStep");
-    //ctx->setContextProperty("timer", &timer);
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     return app.exec();
 }
