@@ -6,7 +6,13 @@
 
 class MashStep : public QObject
 {
-    Q_OBJECT  
+    Q_OBJECT
+
+    Q_PROPERTY(QString name READ getStepName WRITE setStepName NOTIFY stepNameChanged)
+    Q_PROPERTY(QString type READ getStepType WRITE setStepType NOTIFY stepTypeChanged)
+    Q_PROPERTY(double temperature READ getStepTemp WRITE setStepTemp NOTIFY stepTempChanged)
+    Q_PROPERTY(double time READ getStepTime WRITE setStepTime NOTIFY stepTimeChanged)
+
     QString name;
     QString type;
     double temperature;

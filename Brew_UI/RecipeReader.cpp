@@ -45,7 +45,7 @@ void RecipeReader::readRecipe(){
     //The XML document has multiple NAME elements, the following flags are for determining what NAME is referring to
     bool nameIsRecipe = false;
     bool nameIsMashStep = false;
-    MashStep step;
+    //MashStep step;
     while(!xml.atEnd() && !xml.hasError()){
         QXmlStreamReader::TokenType token = xml.readNext();
 
@@ -57,77 +57,40 @@ void RecipeReader::readRecipe(){
                 continue;
             }
             if(xml.name() == "MASH_STEP"){
+                step = new MashStep();
                 nameIsMashStep = true;
                 continue;
             }
             if(xml.name() == "NAME"){
                 if(nameIsRecipe){
                     recipe->setRecipeName(xml.readElementText());
+
                     nameIsRecipe = false;
                     continue;
                 }
                 if(nameIsMashStep){
-                    step.setStepName(xml.readElementText());
-                    qDebug() << step.getStepName();
+                    step->setStepName(xml.readElementText());
+                    qDebug() << step->getStepName();
                     continue;
                 }
             }
             if(xml.name() == "STEP_TIME"){
-                step.setStepTime((xml.readElementText().toDouble()));
-                qDebug() << step.getStepTime();
+                step->setStepTime((xml.readElementText().toDouble()));
+                qDebug() << step->getStepTime();
                 continue;
             }
             if(xml.name() == "STEP_TEMP"){
-                step.setStepTemp(xml.readElementText().toDouble());
-                qDebug() << step.getStepTemp();
+                step->setStepTemp(xml.readElementText().toDouble());
+                qDebug() << step->getStepTemp();
                 continue;
             }
         }
         if(token == QXmlStreamReader::EndElement){
             if(xml.name() == "MASH_STEP"){
-                recipe->addMashStep(&step);
+                recipe->addMashStep(step);
                 qDebug() << "Step added to list";
                 continue;
             }
         }
     }
-
-//    while (xml.readNextStartElement()){
-//        if (xml.name() == "RECIPE"){
-//            while (xml.readNextStartElement()){
-//                switch (hashit(xml.name())){
-//                case NAME:
-//                    recipe->setRecipeName(xml.readElementText());
-//                    break;
-//                case MASH:
-//                    while (xml.readNextStartElement()){
-//                        qDebug() << "Mash loop: " << xml.name();
-//                        switch(hashit(xml.name())){
-//                        case MASHSTEPS:
-//                            while (xml.readNextStartElement()){
-//                                qDebug() << "Mash Steps loop: " << xml.name();
-//                                switch(hashit(xml.name())){
-//                                case NAME:
-//                                    qDebug() << xml.readElementText();
-//                                    break;
-//                                default:
-//                                    //xml.skipCurrentElement();
-//                                    break;
-//                                }
-//                            }
-//                            break;
-//                        default:
-//                            qDebug() << "Skipping element";
-//                            xml.skipCurrentElement();
-//                            break;
-//                        }
-//                    }
-//                    break;
-//                default:
-//                    xml.skipCurrentElement();
-//                    break;
-//                }
-//            }
-//        }
-//    }
 }
