@@ -7,25 +7,28 @@
 using namespace std;
 Recipe::Recipe(QObject *parent) :
     QObject(parent)
+
 {
-    recipeName = "";
+    m_recipeName = "";
     importPath = "";
+}
+QQmlListProperty<MashStep> Recipe::getMashSteps(){
+    return QQmlListProperty<MashStep>(this, m_mashSteps);
 }
 
 void Recipe::addMashStep(MashStep * step){
-    mashSteps.append(step);
+    m_mashSteps.append(step);
+    emit stepsChanged();
+    //Debug stuff
+//    QList<MashStep*>::iterator i;
+//    for (i = mashSteps.begin(); i != mashSteps.end(); ++i)
+//        qDebug() << (*i)->getStepName() << endl;
+
 }
 
 void Recipe::setRecipeName(QString recipeName){
-    this->recipeName = recipeName;
-    recipeNameChanged();
-}
-
-QString Recipe::getRecipeName(){
-    if (this->recipeName != "")
-        return this->recipeName;
-    else
-        return "No name!";
+    this->m_recipeName = recipeName;
+    emit recipeNameChanged();
 }
 
 void Recipe::setImportPath(QString path){
