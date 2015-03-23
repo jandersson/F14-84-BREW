@@ -55,7 +55,11 @@ ApplicationWindow {
                     model: recipe
                     delegate: Text{
                         id: txt_recipeName
-                        text: recipeName
+                        text: recipe.getRecipeName()
+                        Connections {
+                            target: recipe
+                            onRecipeNameChanged: txt_recipeName.text = recipe.getRecipeName()
+                        }
                     }
 
                 }
@@ -130,7 +134,7 @@ ApplicationWindow {
                             }
                         }
                         ListItem.Standard{
-
+                            action: {}
                             content: Row{
                                 anchors.centerIn: parent
                                 TextField {
@@ -170,6 +174,7 @@ ApplicationWindow {
                 }
 
             }
+
             Rectangle{
                 id: mashPage
                 width: tabView.width
@@ -177,44 +182,30 @@ ApplicationWindow {
                 color: "#999"
                 Item{
                     id: mash_temperature
-                    width: parent.width/4
+                    width: parent.width/2
                     height: parent.height/2
+
                     TemperatureCard{}
                 }
                 Item{
                     id: section_mashtimers
                     width: parent.width/2
-                    height: parent.height/3
+                    height: parent.height
                     anchors.right: parent.right
                     TimerCard{
                         id: timerCard_mash
                     }
                 }
                 Item {
-                    id: section_mashBtns
                     anchors.top: mash_temperature.bottom
                     anchors.left: parent.left
                     anchors.margins: 20
-
                     Button{
                         id: btn_startSparge
                         text: "Begin Sparge"
                         elevation: 1
                         onClicked: myPage.selectedTab = 3
                     }
-                }
-                Item {
-                    id: section_mashSchedule
-                    anchors {
-                        left: mash_temperature.right
-                        top: parent.top
-                        //margins: units.dp(16)
-                    }
-
-                    width: parent.width/4
-                    height: parent.height/2
-
-                    MashScheduleCard{}
                 }
             }
 

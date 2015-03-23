@@ -7,7 +7,6 @@ SOURCES += main.cpp \
     RecipeReader.cpp \
     mashstep.cpp \
     Temp_Probe.cpp
-
 RESOURCES += qml.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model

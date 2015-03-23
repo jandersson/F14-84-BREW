@@ -14,7 +14,7 @@ MashStep::MashStep(QObject *parent) :
 
 void MashStep::setStepName(QString name){
     this->name = name;
-    stepNameChanged();
+    emit stepNameChanged();
 }
 
 QString MashStep::getStepName(){
@@ -23,7 +23,7 @@ QString MashStep::getStepName(){
 
 void MashStep::setStepType(QString type){
     this->type = type;
-    stepTypeChanged();
+    emit stepTypeChanged();
 }
 
 QString MashStep::getStepType(){
@@ -32,7 +32,7 @@ QString MashStep::getStepType(){
 
 void MashStep::setStepTemp(double temperature){
     this->temperature = temperature;
-    stepTempChanged();
+    emit stepTempChanged();
 }
 
 double MashStep::getStepTemp(){
@@ -41,7 +41,7 @@ double MashStep::getStepTemp(){
 
 void MashStep::setStepTime(double time){
     this->time = time;
-    stepTimeChanged();
+    emit stepTimeChanged();
 }
 
 double MashStep::getStepTime(){

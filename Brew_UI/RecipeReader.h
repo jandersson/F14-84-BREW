@@ -12,7 +12,6 @@ private:
     QXmlStreamReader xml;
     void readRecipe();
     Recipe * recipe;
-    MashStep * step;
 };
 
 #endif // RECIPEREADER_H
