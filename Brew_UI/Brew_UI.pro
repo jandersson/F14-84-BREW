@@ -5,7 +5,8 @@ QT += qml quick widgets
 SOURCES += main.cpp \
     recipe.cpp \
     RecipeReader.cpp \
-    mashstep.cpp
+    mashstep.cpp \
+    Temp_Probe.cpp
 
 RESOURCES += qml.qrc
 
@@ -18,4 +19,5 @@ include(deployment.pri)
 HEADERS += \
     RecipeReader.h \
     recipe.h \
-    mashstep.h
+    mashstep.h \
+    Temp_Probe.h

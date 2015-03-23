@@ -21,8 +21,8 @@ View{
                 model: recipe.mashSteps
                 delegate: ListItem.Subtitled{
                 text: modelData.name
-                subText: "Temp: " + modelData.temperature
-                valueText: "Time: " + modelData.time
+                subText: "Temp: " + modelData.temperature + " F"
+                valueText: "Time: " + modelData.time + " min"
                 }
             }
         }
