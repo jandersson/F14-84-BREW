@@ -4,5 +4,7 @@
         <file>PumpControls.qml</file>
         <file>TemperatureCard.qml</file>
         <file>TimerCard.qml</file>
+        <file>ImportRecipeDialog.qml</file>
+        <file>MashScheduleCard.qml</file>
     </qresource>
 </RCC>
