@@ -19,11 +19,6 @@ QQmlListProperty<MashStep> Recipe::getMashSteps(){
 void Recipe::addMashStep(MashStep * step){
     m_mashSteps.append(step);
     emit stepsChanged();
-    //Debug stuff
-//    QList<MashStep*>::iterator i;
-//    for (i = mashSteps.begin(); i != mashSteps.end(); ++i)
-//        qDebug() << (*i)->getStepName() << endl;
-
 }
 
 void Recipe::setRecipeName(QString recipeName){

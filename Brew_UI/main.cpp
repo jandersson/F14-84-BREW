@@ -5,7 +5,7 @@
 #include <QtQml>
 #include "recipe.h"
 #include "RecipeReader.h"
-
+#include "recipemanager.h"
 int main(int argc, char *argv[])
 {
     // Create Qt application window
@@ -14,15 +14,14 @@ int main(int argc, char *argv[])
     //QQmlApplication engine loads a single QML resource
     //Exposes some application functionality which a C++/QML hybrid application uses to control the application from C++
     QQmlApplicationEngine engine;
-
     //Instantiate a single instance of the recipe class for testing purposes
     Recipe recipe;
-    //Timer timer;
-
+    RecipeManager manager;
     QQmlContext* ctx = engine.rootContext();
+    ctx->setContextProperty("manager", &manager);
     ctx->setContextProperty("recipe", &recipe);
     qmlRegisterType<MashStep>("MashStep", 1, 0, "MashStep");
-    //ctx->setContextProperty("timer", &timer);
+    qmlRegisterType<Recipe>("Recipe", 1, 0, "Recipe");
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     return app.exec();
 }

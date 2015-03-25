@@ -45,21 +45,37 @@ ApplicationWindow {
                 ImportRecipeDialog{
                     id: dialog_importRecipe
                 }
+
+                Component{
+                    id: recipeDelegate
+                    Item{
+                        width: grid.cellWidth; height: grid.cellHeight
+
+                        Column{
+                            anchors.fill: parent
+                            Text {text: recipeName; anchors.horizontalCenter: parent.horizontalCenter}
+                            Label{text: "Brew!"; anchors.horizontalCenter: parent.horizontalCenter; anchors.bottom: parent.bottom}
+                            MouseArea{
+                                anchors.fill: parent
+                                onClicked: myPage.selectedTab = 1}
+                        }
+                    }
+                }
                 GridView{
-                    width: 300; height: 200
+                    id: grid
+                    width: parent.width/1.5; height: 400
+                    cellWidth: 200; cellHeight: 200
                     anchors{
-                        margins: units.dp(8)
+                        margins: units.dp(20)
                         verticalCenter: parent.verticalCenter
                         horizontalCenter: parent.horizontalCenter
                     }
-                    model: recipe
-                    delegate: Text{
-                        id: txt_recipeName
-                        text: recipeName
-                    }
 
+                    model: manager.recipeList
+                    delegate: recipeDelegate
+                    highlight: Rectangle{ color: "lightsteelblue"; radius: 5}
+                    focus: true
                 }
-
                 Row{
                     anchors{
                         bottom: parent.bottom

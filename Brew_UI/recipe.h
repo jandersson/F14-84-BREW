@@ -23,14 +23,8 @@ public:
         return m_recipeName;
     }
 
-//    QQmlListProperty<MashStep> getMashSteps() const{
-//        return QQmlListProperty<MashStep>(this, 0);
-//    }
-
-    //QList<QObject*> getMashSteps() const { return m_mashSteps; }
     QQmlListProperty<MashStep> getMashSteps();
     void addMashStep(MashStep * step);
-
 
 signals:
 
