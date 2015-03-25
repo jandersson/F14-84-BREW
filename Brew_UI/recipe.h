@@ -13,7 +13,6 @@ class Recipe : public QObject
     Q_OBJECT
     Q_PROPERTY(QString recipeName READ getRecipeName WRITE setRecipeName NOTIFY recipeNameChanged)
     Q_PROPERTY(QString importPath READ getImportPath WRITE setImportPath NOTIFY importPathChanged)
-    //Q_PROPERTY(QList<MashStep*> mashSteps READ getMashSteps)
     Q_PROPERTY(QQmlListProperty<MashStep> mashSteps READ getMashSteps NOTIFY stepsChanged)
 
 public:
