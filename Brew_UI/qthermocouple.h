@@ -3,7 +3,7 @@
 
 #include <QObject>
 
-class Qthermocouple : public QObject
+class Qthermocouple : public QObject, public Temp_Probe
 {
     Q_OBJECT
 public:
