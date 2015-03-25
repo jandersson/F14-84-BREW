@@ -21,7 +21,6 @@ class MashStep : public QObject
 public:
 
     explicit MashStep(QObject *parent = 0);
-    // MashStep(QString _name, QString _type, double _temperature, double _time);
 
 signals:
 
