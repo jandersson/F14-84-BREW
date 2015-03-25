@@ -2,6 +2,7 @@
 #define QTHERMOCOUPLE_H
 
 #include <QObject>
+#include "Temp_Probe.h"
 
 class Qthermocouple : public QObject, public Temp_Probe
 {
