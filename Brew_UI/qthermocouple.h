@@ -7,6 +7,8 @@
 class Qthermocouple : public QObject, public Temp_Probe
 {
     Q_OBJECT
+    Q_PROPERTY(double temperature READ getTemperature NOTIFY temperatureChanged)
+
 public:
     explicit Qthermocouple(QObject *parent = 0);
 
