@@ -3,6 +3,7 @@
 #include <QObject>
 #include <QString>
 #include <QList>
+#include <QQmlListProperty>
 #include "mashstep.h"
 class Recipe : public QObject
 {
@@ -23,16 +24,17 @@ public:
 
 signals:
     void recipeNameChanged();
+    void importPathChanged();
+    void stepsChanged();
 public slots:
-    QString getRecipeName();
     void setRecipeName(QString recipeName);
     void setImportPath(QString path);
     QString getImportPath();
 private:
-    QString recipeName;
+    QString m_recipeName;
     QString importPath;
     void importRecipe();
-    QList<MashStep*> mashSteps;
+    QList<MashStep*> m_mashSteps;
 
 };
 
