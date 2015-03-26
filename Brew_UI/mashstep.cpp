@@ -4,14 +4,6 @@ MashStep::MashStep(QObject *parent) :
     QObject(parent)
 {
 }
-
-//MashStep::MashStep(QString _name, QString _type, double _temperature, double _time){
-//    name = _name;
-//    type = _type;
-//    temperature = _temperature;
-//    time = _time;
-//}
-
 void MashStep::setStepName(QString name){
     this->name = name;
     emit stepNameChanged();

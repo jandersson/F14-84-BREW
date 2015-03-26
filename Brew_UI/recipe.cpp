@@ -13,7 +13,8 @@ Recipe::Recipe(QObject *parent) :
 }
 
 void Recipe::addMashStep(MashStep * step){
-    mashSteps.append(step);
+    m_mashSteps.append(step);
+    emit stepsChanged();
 }
 
 void Recipe::setRecipeName(QString recipeName){

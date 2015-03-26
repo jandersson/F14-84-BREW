@@ -67,26 +67,22 @@ void RecipeReader::readRecipe(){
                     continue;
                 }
                 if(nameIsMashStep){
-                    step.setStepName(xml.readElementText());
-                    qDebug() << step.getStepName();
+                    step->setStepName(xml.readElementText());
                     continue;
                 }
             }
             if(xml.name() == "STEP_TIME"){
-                step.setStepTime((xml.readElementText().toDouble()));
-                qDebug() << step.getStepTime();
+                step->setStepTime((xml.readElementText().toDouble()));
                 continue;
             }
             if(xml.name() == "STEP_TEMP"){
-                step.setStepTemp(xml.readElementText().toDouble());
-                qDebug() << step.getStepTemp();
+                step->setStepTemp(xml.readElementText().toDouble());
                 continue;
             }
         }
         if(token == QXmlStreamReader::EndElement){
             if(xml.name() == "MASH_STEP"){
-                recipe->addMashStep(&step);
-                qDebug() << "Step added to list";
+                recipe->addMashStep(step);
                 continue;
             }
         }

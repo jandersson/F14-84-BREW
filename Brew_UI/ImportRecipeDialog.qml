@@ -9,10 +9,14 @@ FileDialog{
         recipe.setImportPath(filedialog.fileUrl)
         console.log("Importing file: " + recipe.getImportPath())
         filedialog.close()
+        manager.addRecipe(recipe)
     }
     onRejected: {
         console.log("Operation canceled")
         filedialog.close()
     }
+
+
+
 
 }
