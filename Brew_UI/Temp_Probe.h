@@ -6,7 +6,8 @@ public:
 	Temp_Probe();
 	~Temp_Probe();
 	int Read_Temp();
-	double Convert_Temp(int);
+
 private:
     double temperature;
+    double Convert_Temp(int);
 };
