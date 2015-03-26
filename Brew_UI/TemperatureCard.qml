@@ -18,19 +18,19 @@ Item{
                     text: "Temperature"
                 }
                 Repeater {
-                    model: thermocouple
+                    model: thermoManager.thermocoupleList
                     delegate:
                         ListItem.Standard{
                             text: name + " : " + temperature + " F"
                 }
 
                 }
-                ListItem.Standard{
-                    text: "Mash Tun 72F"
-                }
-                ListItem.Standard{
-                    text: "Boil Kettle  72F"
-                }
+//                ListItem.Standard{
+//                    text: "Mash Tun 72F"
+//                }
+//                ListItem.Standard{
+//                    text: "Boil Kettle  72F"
+//                }
             }
         }
 

@@ -169,10 +169,8 @@ ApplicationWindow {
                 color: "#999"
                 Item{
                     id: prep_temperature
-                    width: parent.width/2
-                    height: parent.height
-
-
+                    width: parent.width/4
+                    height: parent.height/2
                     TemperatureCard{}
                 }
                 Item{
@@ -241,7 +239,7 @@ ApplicationWindow {
                 color: "#999"
                 Item{
                     id: sparge_temperature
-                    width: parent.width/2
+                    width: parent.width/4
                     height: parent.height/2
 
                     TemperatureCard{}
@@ -272,7 +270,7 @@ ApplicationWindow {
                 color: "#999"
                 Item{
                     id: chill_temperature
-                    width: parent.width/2
+                    width: parent.width/4
                     height: parent.height/2
 
                     TemperatureCard{

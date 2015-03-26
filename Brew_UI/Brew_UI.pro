@@ -11,7 +11,8 @@ SOURCES += main.cpp \
     Temp_Probe.cpp \
     Timer.cpp \
     qthermocouple.cpp \
-    qtimer.cpp
+    qtimer.cpp \
+    qthermocouplemanager.cpp
 
 RESOURCES += qml.qrc
 
@@ -30,4 +31,5 @@ HEADERS += \
     Timer.h \
     Temp_Probe.h \
     qthermocouple.h \
-    qtimer.h
+    qtimer.h \
+    qthermocouplemanager.h

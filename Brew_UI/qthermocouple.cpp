@@ -6,7 +6,7 @@ Qthermocouple::Qthermocouple(QObject *parent) :
 }
 
 Qthermocouple::Qthermocouple(QString name){
-    this->name = name;
+    thermocoupleName = name;
 }
 
 QString Qthermocouple::getName(){

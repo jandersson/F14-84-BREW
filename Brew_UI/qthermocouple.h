@@ -13,6 +13,7 @@ class Qthermocouple : public QObject, public Temp_Probe
 
 public:
     explicit Qthermocouple(QObject *parent = 0);
+    Qthermocouple(QString name);
 
 signals:
     void temperatureChanged();

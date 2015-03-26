@@ -9,11 +9,13 @@ using namespace std;
 
 Temp_Probe::Temp_Probe()
 {
+    Convert_Temp(0);
 }
 
 
 Temp_Probe::~Temp_Probe()
 {
+
 }
 
 double Temp_Probe::getTemperature(){
