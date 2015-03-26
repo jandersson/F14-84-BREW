@@ -17,8 +17,13 @@ Item{
                 ListItem.Header{
                     text: "Temperature"
                 }
-                ListItem.Standard{
-                    text: "Hot Liqour Tank  72F"
+                Repeater {
+                    model: thermocouple
+                    delegate:
+                        ListItem.Standard{
+                            text: name + " : " + temperature + " F"
+                }
+
                 }
                 ListItem.Standard{
                     text: "Mash Tun 72F"
