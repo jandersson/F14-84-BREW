@@ -8,7 +8,7 @@ using namespace std;
 Recipe::Recipe(QObject *parent) :
     QObject(parent)
 {
-    recipeName = "";
+    m_recipeName = "";
     importPath = "";
 }
 
@@ -18,20 +18,18 @@ void Recipe::addMashStep(MashStep * step){
 }
 
 void Recipe::setRecipeName(QString recipeName){
-    this->recipeName = recipeName;
-    recipeNameChanged();
+    this->m_recipeName = recipeName;
+    emit recipeNameChanged();
 }
 
 QString Recipe::getRecipeName(){
-    if (this->recipeName != "")
-        return this->recipeName;
-    else
-        return "No name!";
+    return this->m_recipeName;
 }
 
 void Recipe::setImportPath(QString path){
     QUrl fileUrl(path);
     importPath = fileUrl.toLocalFile();
+    emit importPathChanged();
     this->importRecipe();
 }
 
