@@ -107,5 +107,5 @@ double Temp_Probe::Convert_Temp(int Temp)
 	combined_temp = Main_Temp + decimal;
 	Converted_Temp = (1.8 * combined_temp) + 32;
 	
-	return Converted_Temp;
+    this->temperature = Converted_Temp;
 }
