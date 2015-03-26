@@ -4,5 +4,6 @@ public:
 	Temp_Probe();
 	~Temp_Probe();
 	int Read_Temp();
-	double Convert_Temp(int);
+    double Convert_Temp(int);
+
 };

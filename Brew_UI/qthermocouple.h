@@ -11,6 +11,7 @@ public:
     explicit Qthermocouple(QObject *parent = 0);
 
 signals:
+    void temperatureChanged();
 
 public slots:
 

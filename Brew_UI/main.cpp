@@ -6,6 +6,8 @@
 #include "recipe.h"
 #include "RecipeReader.h"
 #include "recipemanager.h"
+#include "qthermocouple.h"
+
 int main(int argc, char *argv[])
 {
     // Create Qt application window
@@ -16,8 +18,13 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     //Instantiate a single instance of the recipe class for testing purposes
     Recipe recipe;
+    //Instantiate a manager for recipes, essentially holds a list of recipes
     RecipeManager manager;
+
     QQmlContext* ctx = engine.rootContext();
+    //Instantiate a Qthermocouple, a representation of a single thermocouple, and set a context property for it
+    Qthermocouple thermocouple;
+    ctx->setContextProperty("thermocouple", &thermocouple);
     ctx->setContextProperty("manager", &manager);
     ctx->setContextProperty("recipe", &recipe);
     qmlRegisterType<MashStep>("MashStep", 1, 0, "MashStep");
