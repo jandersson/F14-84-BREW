@@ -45,7 +45,7 @@ void RecipeReader::readRecipe(){
     //The XML document has multiple NAME elements, the following flags are for determining what NAME is referring to
     bool nameIsRecipe = false;
     bool nameIsMashStep = false;
-    MashStep step;
+    //MashStep step;
     while(!xml.atEnd() && !xml.hasError()){
         QXmlStreamReader::TokenType token = xml.readNext();
 
@@ -57,12 +57,14 @@ void RecipeReader::readRecipe(){
                 continue;
             }
             if(xml.name() == "MASH_STEP"){
+                step = new MashStep();
                 nameIsMashStep = true;
                 continue;
             }
             if(xml.name() == "NAME"){
                 if(nameIsRecipe){
                     recipe->setRecipeName(xml.readElementText());
+
                     nameIsRecipe = false;
                     continue;
                 }
@@ -87,43 +89,4 @@ void RecipeReader::readRecipe(){
             }
         }
     }
-
-//    while (xml.readNextStartElement()){
-//        if (xml.name() == "RECIPE"){
-//            while (xml.readNextStartElement()){
-//                switch (hashit(xml.name())){
-//                case NAME:
-//                    recipe->setRecipeName(xml.readElementText());
-//                    break;
-//                case MASH:
-//                    while (xml.readNextStartElement()){
-//                        qDebug() << "Mash loop: " << xml.name();
-//                        switch(hashit(xml.name())){
-//                        case MASHSTEPS:
-//                            while (xml.readNextStartElement()){
-//                                qDebug() << "Mash Steps loop: " << xml.name();
-//                                switch(hashit(xml.name())){
-//                                case NAME:
-//                                    qDebug() << xml.readElementText();
-//                                    break;
-//                                default:
-//                                    //xml.skipCurrentElement();
-//                                    break;
-//                                }
-//                            }
-//                            break;
-//                        default:
-//                            qDebug() << "Skipping element";
-//                            xml.skipCurrentElement();
-//                            break;
-//                        }
-//                    }
-//                    break;
-//                default:
-//                    xml.skipCurrentElement();
-//                    break;
-//                }
-//            }
-//        }
-//    }
 }
