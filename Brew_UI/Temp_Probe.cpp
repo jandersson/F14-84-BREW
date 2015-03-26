@@ -16,6 +16,10 @@ Temp_Probe::~Temp_Probe()
 {
 }
 
+double Temp_Probe::getTemperature(){
+    return this->temperature;
+}
+
 int Temp_Probe::Read_Temp()
 {
 	string inputstate;
