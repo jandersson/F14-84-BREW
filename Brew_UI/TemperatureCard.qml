@@ -17,17 +17,14 @@ Item{
                 ListItem.Header{
                     text: "Temperature"
                 }
-                ListItem.Subtitled{
-                    text: "Hot Liqour Tank"
-                    subText: "72 F"
+                ListItem.Standard{
+                    text: "Hot Liqour Tank  72F"
                 }
-                ListItem.Subtitled{
-                    text: "Mash Tun"
-                    subText: "72 F"
+                ListItem.Standard{
+                    text: "Mash Tun 72F"
                 }
-                ListItem.Subtitled{
-                    text: "Boil Kettle"
-                    subText: "72 F"
+                ListItem.Standard{
+                    text: "Boil Kettle  72F"
                 }
             }
         }
