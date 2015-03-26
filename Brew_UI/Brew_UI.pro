@@ -6,7 +6,12 @@ SOURCES += main.cpp \
     recipe.cpp \
     RecipeReader.cpp \
     mashstep.cpp \
-    recipemanager.cpp
+    recipemanager.cpp \
+    GPIO.cpp \
+    Temp_Probe.cpp \
+    Timer.cpp \
+    qthermocouple.cpp \
+    qtimer.cpp
 
 RESOURCES += qml.qrc
 
@@ -20,4 +25,9 @@ HEADERS += \
     RecipeReader.h \
     recipe.h \
     mashstep.h \
-    recipemanager.h
+    recipemanager.h \
+    GPIO.h \
+    Timer.h \
+    Temp_Probe.h \
+    qthermocouple.h \
+    qtimer.h
