@@ -7,9 +7,13 @@
 using namespace std;
 Recipe::Recipe(QObject *parent) :
     QObject(parent)
+
 {
     m_recipeName = "";
     importPath = "";
+}
+QQmlListProperty<MashStep> Recipe::getMashSteps(){
+    return QQmlListProperty<MashStep>(this, m_mashSteps);
 }
 
 void Recipe::addMashStep(MashStep * step){
@@ -22,14 +26,9 @@ void Recipe::setRecipeName(QString recipeName){
     emit recipeNameChanged();
 }
 
-QString Recipe::getRecipeName(){
-    return this->m_recipeName;
-}
-
 void Recipe::setImportPath(QString path){
     QUrl fileUrl(path);
     importPath = fileUrl.toLocalFile();
-    emit importPathChanged();
     this->importRecipe();
 }
 
