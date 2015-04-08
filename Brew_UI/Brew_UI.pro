@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-QT += qml quick widgets
+QT += qml quick widgets sql
 
 SOURCES += main.cpp \
     recipe.cpp \
@@ -12,12 +12,13 @@ SOURCES += main.cpp \
     Timer.cpp \
     qthermocouple.cpp \
     qtimer.cpp \
-    qthermocouplemanager.cpp
+    qthermocouplemanager.cpp \
+    levelsensor.cpp
 
 RESOURCES += qml.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
-QML_IMPORT_PATH =
+#QML_IMPORT_PATH =
 
 # Default rules for deployment.
 include(deployment.pri)
@@ -32,4 +33,12 @@ HEADERS += \
     Temp_Probe.h \
     qthermocouple.h \
     qtimer.h \
-    qthermocouplemanager.h
+    qthermocouplemanager.h \
+    levelsensor.h
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../qdjango/build/src/db/release/ -lqdjango-db
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../qdjango/build/src/db/debug/ -lqdjango-db
+else:unix: LIBS += -L$$PWD/../qdjango/build/src/db/ -lqdjango-db
+
+INCLUDEPATH += $$PWD/../qdjango/src/db
+DEPENDPATH += $$PWD/../qdjango/build/src/db
