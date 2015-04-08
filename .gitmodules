@@ -1,0 +1,3 @@
+[submodule "qdjango"]
+	path = qdjango
+	url = git@github.com:jlaine/qdjango.git
