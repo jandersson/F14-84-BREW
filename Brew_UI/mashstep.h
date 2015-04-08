@@ -3,8 +3,9 @@
 
 #include <QObject>
 #include <QString>
+#include "QDjangoModel.h"
 
-class MashStep : public QObject
+class MashStep : public QDjangoModel
 {
     Q_OBJECT
 
@@ -20,7 +21,7 @@ class MashStep : public QObject
 
 public:
 
-    explicit MashStep(QObject *parent = 0);
+//    explicit MashStep(QObject *parent = 0);
 
 signals:
 

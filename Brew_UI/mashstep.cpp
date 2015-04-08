@@ -1,9 +1,9 @@
 #include "mashstep.h"
 
-MashStep::MashStep(QObject *parent) :
-    QObject(parent)
-{
-}
+////MashStep::MashStep(QObject *parent) :
+////    //QObject(parent)
+////{
+//}
 void MashStep::setStepName(QString name){
     this->name = name;
     stepNameChanged();
