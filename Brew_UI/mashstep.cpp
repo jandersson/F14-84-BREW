@@ -13,7 +13,7 @@ QString MashStep::getStepName(){
     return this->name;
 }
 
-void MashStep::setStepType(QString type){
+gavoid MashStep::setStepType(QString type){
     this->type = type;
     stepTypeChanged();
 }
