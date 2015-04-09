@@ -5,13 +5,13 @@
 #include <QDebug>
 #include <QUrl>
 using namespace std;
-Recipe::Recipe(QObject *parent) :
-    QObject(parent)
+//Recipe::Recipe(QObject *parent) :
+//    QObject(parent)
 
-{
-    m_recipeName = "";
-    importPath = "";
-}
+//{
+//    m_recipeName = "";
+//    importPath = "";
+//}
 QQmlListProperty<MashStep> Recipe::getMashSteps(){
     return QQmlListProperty<MashStep>(this, m_mashSteps);
 }

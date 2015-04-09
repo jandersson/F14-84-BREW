@@ -3,6 +3,8 @@
 #include <QXmlStreamReader>
 #include <QQmlContext>
 #include <QtQml>
+#include <QSqlDatabase>
+#include <QDjango.h>
 #include "recipe.h"
 #include "RecipeReader.h"
 #include "recipemanager.h"
@@ -16,6 +18,12 @@ int main(int argc, char *argv[])
     //QQmlApplication engine loads a single QML resource
     //Exposes some application functionality which a C++/QML hybrid application uses to control the application from C++
     QQmlApplicationEngine engine;
+
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName(":memory:");
+    db.open();
+    QDjango::setDatabase(db);
+
     //Instantiate a single instance of the recipe class for testing purposes
     Recipe recipe;
     //Instantiate a manager for recipes, essentially holds a list of recipes

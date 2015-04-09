@@ -5,7 +5,8 @@
 #include <QList>
 #include <QQmlListProperty>
 #include "mashstep.h"
-class Recipe : public QObject
+#include "QDjangoModel.h"
+class Recipe : public QDjangoModel
 {
     Q_OBJECT
     Q_PROPERTY(QString recipeName READ getRecipeName WRITE setRecipeName NOTIFY recipeNameChanged)
@@ -13,7 +14,7 @@ class Recipe : public QObject
     Q_PROPERTY(QQmlListProperty<MashStep> mashSteps READ getMashSteps NOTIFY stepsChanged)
 
 public:
-    explicit Recipe(QObject *parent = 0);
+//    explicit Recipe(QObject *parent = 0);
 
     QString getRecipeName() const {
         return m_recipeName;

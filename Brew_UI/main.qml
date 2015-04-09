@@ -182,6 +182,18 @@ ApplicationWindow {
                         id: timerCard_prep
                     }
                 }
+                Button{
+                    anchors{
+                        top: prep_temperature.bottom
+                        right: parent.right
+                        margins: units.dp(30)
+                    }
+                    elevation: 1
+                    text: "Strike Water Ready - Begin Mash"
+                    onClicked: {
+                        myPage.selectedTab = 2
+                    }
+                }
 
             }
             Rectangle{
