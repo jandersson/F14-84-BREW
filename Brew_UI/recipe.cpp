@@ -43,4 +43,6 @@ void Recipe::importRecipe(){
     RecipeReader recipeReader(this);
     recipeReader.read(&file);
     file.close();
+    //Save to the database
+    this->save();
 }
