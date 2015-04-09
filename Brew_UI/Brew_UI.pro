@@ -36,9 +36,21 @@ HEADERS += \
     qthermocouplemanager.h \
     levelsensor.h
 
+INCLUDEPATH += $$PWD/../qdjango/src/db
+
+unix:!macx: LIBS += -L$$PWD/../qdjango/build/src/http/ -lqdjango-http
+
+INCLUDEPATH += $$PWD/../qdjango/build/src/http
+DEPENDPATH += $$PWD/../qdjango/build/src/http
+
+unix:!macx: LIBS += -L$$PWD/../qdjango/build/src/script/ -lqdjango-script
+
+INCLUDEPATH += $$PWD/../qdjango/build/src/script
+DEPENDPATH += $$PWD/../qdjango/build/src/script
+
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../qdjango/build/src/db/release/ -lqdjango-db
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../qdjango/build/src/db/debug/ -lqdjango-db
 else:unix: LIBS += -L$$PWD/../qdjango/build/src/db/ -lqdjango-db
 
-INCLUDEPATH += $$PWD/../qdjango/src/db
+INCLUDEPATH += $$PWD/../qdjango/build/src/db
 DEPENDPATH += $$PWD/../qdjango/build/src/db
