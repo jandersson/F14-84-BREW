@@ -34,6 +34,7 @@ void Recipe::addMashStep(MashStep * step){
 void Recipe::setRecipeName(QString recipeName){
     this->m_recipeName = recipeName;
     emit recipeNameChanged();
+    this->save();
 }
 
 void Recipe::setImportPath(QString path){

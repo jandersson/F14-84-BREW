@@ -12,6 +12,7 @@
 #include "qthermocouplemanager.h"
 int main(int argc, char *argv[])
 {
+    QDjango::setDebugEnabled(true);
     QString db_name = "BrewDB.sql";
     QDjango::registerModel<Recipe>();
     QDjango::registerModel<MashStep>();
@@ -33,7 +34,7 @@ int main(int argc, char *argv[])
     RecipeManager manager;
     QthermocoupleManager thermoManager;
     QQmlContext* ctx = engine.rootContext();
-    //Instantiate a Qthermocouple, a representation of a single thermocouple, and set a context property for it
+    //Instantiate a Qthermocouple, a representation of a single thermocouple, and set a context property for itgagc
     Qthermocouple thermocoupleHLT("Hot Liqour Tank");
     Qthermocouple thermocoupleMT("Mash Tun");
     Qthermocouple thermocoupleBK("Boil Kettle");
