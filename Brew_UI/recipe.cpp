@@ -12,6 +12,16 @@ using namespace std;
 //    m_recipeName = "";
 //    importPath = "";
 //}
+
+QString Recipe::style() const{
+    return m_style;
+}
+
+void Recipe::set_style(const QString &style){
+    m_style = style;
+    emit style_changed();
+}
+
 QQmlListProperty<MashStep> Recipe::getMashSteps(){
     return QQmlListProperty<MashStep>(this, m_mashSteps);
 }

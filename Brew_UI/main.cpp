@@ -13,6 +13,8 @@
 int main(int argc, char *argv[])
 {
     QString db_name = "BrewDB.sql";
+    QDjango::registerModel<Recipe>();
+    QDjango::registerModel<MashStep>();
     // Create Qt application window
     // Manages the GUI control flow and main settings
     QApplication app(argc, argv);
