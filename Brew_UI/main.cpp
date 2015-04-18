@@ -12,6 +12,7 @@
 #include "qthermocouplemanager.h"
 int main(int argc, char *argv[])
 {
+    QString db_name = "BrewDB.sql";
     // Create Qt application window
     // Manages the GUI control flow and main settings
     QApplication app(argc, argv);
@@ -20,10 +21,10 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName(":memory:");
+    db.setDatabaseName(db_name);
     db.open();
     QDjango::setDatabase(db);
-
+    QDjango::createTables();
     //Instantiate a single instance of the recipe class for testing purposes
     Recipe recipe;
     //Instantiate a manager for recipes, essentially holds a list of recipes
