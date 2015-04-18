@@ -11,7 +11,7 @@ class Recipe : public QDjangoModel
     Q_OBJECT
     Q_PROPERTY(QString recipeName READ getRecipeName WRITE setRecipeName NOTIFY recipeNameChanged)
     Q_PROPERTY(QString importPath READ getImportPath WRITE setImportPath NOTIFY importPathChanged)
-    Q_PROPERTY(QQmlListProperty<MashStep> mashSteps READ getMashSteps NOTIFY stepsChanged)
+    Q_PROPERTY(int mash_steps READ mash_steps NOTIFY stepsChanged)
     Q_PROPERTY(QString style READ style WRITE set_style NOTIFY style_changed)
 
 public:
@@ -21,8 +21,7 @@ public:
         return m_recipeName;
     }
 
-    QQmlListProperty<MashStep> getMashSteps();
-    void addMashStep(MashStep * step);
+    int mash_steps() const;
 
     QString style() const;
     void set_style(const QString &style);
@@ -42,7 +41,7 @@ private:
     QString importPath;
     QString m_style;
     void importRecipe();
-    QList<MashStep*> m_mashSteps;
+    int m_mash_steps;
 
 };
 

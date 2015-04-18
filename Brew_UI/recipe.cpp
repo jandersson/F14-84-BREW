@@ -22,13 +22,8 @@ void Recipe::set_style(const QString &style){
     emit style_changed();
 }
 
-QQmlListProperty<MashStep> Recipe::getMashSteps(){
-    return QQmlListProperty<MashStep>(this, m_mashSteps);
-}
-
-void Recipe::addMashStep(MashStep * step){
-    m_mashSteps.append(step);
-    emit stepsChanged();
+int Recipe::mash_steps() const{
+    return m_mash_steps;
 }
 
 void Recipe::setRecipeName(QString recipeName){

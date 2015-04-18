@@ -84,7 +84,9 @@ void RecipeReader::readRecipe(){
         }
         if(token == QXmlStreamReader::EndElement){
             if(xml.name() == "MASH_STEP"){
-                recipe->addMashStep(step);
+                step->save();
+                //Recipe class is no longer in charge of managing mash step creation
+                //recipe->addMashStep(step);
                 continue;
             }
         }
