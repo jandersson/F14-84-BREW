@@ -58,6 +58,8 @@ void RecipeReader::readRecipe(){
             }
             if(xml.name() == "MASH_STEP"){
                 step = new MashStep();
+                //ideally a constructor would do this instead
+                step->set_recipe(recipe);
                 nameIsMashStep = true;
                 continue;
             }
@@ -85,8 +87,6 @@ void RecipeReader::readRecipe(){
         if(token == QXmlStreamReader::EndElement){
             if(xml.name() == "MASH_STEP"){
                 step->save();
-                //Recipe class is no longer in charge of managing mash step creation
-                //recipe->addMashStep(step);
                 continue;
             }
         }

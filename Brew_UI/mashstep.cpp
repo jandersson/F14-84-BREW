@@ -1,9 +1,10 @@
 #include "mashstep.h"
 
-////MashStep::MashStep(QObject *parent) :
-////    //QObject(parent)
-////{
-//}
+MashStep::MashStep(QObject *parent) :
+  QDjangoModel(parent)
+{
+    setForeignKey("recipe", new Recipe(this));
+}
 void MashStep::setStepName(QString name){
     this->name = name;
     stepNameChanged();
@@ -38,4 +39,12 @@ void MashStep::setStepTime(double time){
 
 double MashStep::getStepTime(){
     return this->time;
+}
+
+void MashStep::set_recipe(Recipe * recipe){
+     setForeignKey("recipe", recipe);
+}
+
+Recipe * MashStep::recipe() const{
+    return qobject_cast<Recipe*>(foreignKey("recipe"));
 }

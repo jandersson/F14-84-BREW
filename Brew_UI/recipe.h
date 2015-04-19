@@ -6,6 +6,7 @@
 #include <QQmlListProperty>
 #include "mashstep.h"
 #include "QDjangoModel.h"
+
 class Recipe : public QDjangoModel
 {
     Q_OBJECT
@@ -15,8 +16,7 @@ class Recipe : public QDjangoModel
     Q_PROPERTY(QString style READ style WRITE set_style NOTIFY style_changed)
 
 public:
-//    explicit Recipe(QObject *parent = 0);
-
+    explicit Recipe(QObject *parent = 0);
     QString getRecipeName() const {
         return m_recipeName;
     }
@@ -42,7 +42,6 @@ private:
     QString m_style;
     void importRecipe();
     int m_mash_steps;
-
 };
 
 #endif // RECIPE_H

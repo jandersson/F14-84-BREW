@@ -5,13 +5,10 @@
 #include <QDebug>
 #include <QUrl>
 using namespace std;
-//Recipe::Recipe(QObject *parent) :
-//    QObject(parent)
-
-//{
-//    m_recipeName = "";
-//    importPath = "";
-//}
+Recipe::Recipe(QObject *parent) :
+    QDjangoModel(parent)
+{
+}
 
 QString Recipe::style() const{
     return m_style;
